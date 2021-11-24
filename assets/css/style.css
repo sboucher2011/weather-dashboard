@@ -26,6 +26,11 @@ h1 {
     padding-top: 10px;
 }
 
+#cityNameDateIcon {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 main {
     margin: 15px auto;
     width: 98%;
@@ -70,7 +75,12 @@ main {
 #forcast {
     margin-top: 10px;
 }
-  
+
+.card-body {
+  background-color: darkblue;
+  color: white;
+}
+ 
   /* FLEX CONTENT */
   .flex-row {
     display: flex;
