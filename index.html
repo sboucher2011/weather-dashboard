@@ -1,47 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-
-    <link rel="stylesheet" href="assets/css/style.css" />
-
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
+
 <body>
     <div id="header">
         <h1>Weather Dashboard</h1>
     </div>
+    
+    <main class="flex-row justify-space-between">
 
-    <div class="container">
-        <div class="row">
+        <!-- Search Column-->
+        <div class="col-12 col-md-3" id="searchSide">
+            <h2 class="form-label" for="username">Search for a City:</h2>
+            <form id="city-form">
+                <input name="cityName" id="cityName" type="text" autofocus="true" class="form-input" />
+                <button type="submit" class="btn">Search</button>
+            </form>
 
-            <!-- Search Form and Search History -->
-            <div class="col-md-3" id="search-col">
-                <h2>Search for a City:</h2>
-                <form>
-                    <input class="form-control" type="text" id="searchCity" name="searchCity" placeholder="Search City">
-                </form>
-                <button class="btn btn-primary" type="submit" id="searchBtn">Search</button>
+            <div class="savedLocations">
+
             </div>
-        
-            <!-- Current Weather and 5-Day Forcast -->
-            <div class="col-md-6" id="right-side">
-                <div id="city-info">
-                    <h2>Atlanta</h2>
+
+        </div>
+
+        <!-- Weather Column-->
+        <div class="col-12 col-md-9" id="weatherSide">
+
+            <!-- Current Day-->
+            <div id="city-info">
+                <h2 id="cityNameDateIcon">Atlanta</h2>
+                <p id="currentTemp">Temp</p>
+                <p id="currentWind">Wind</p>
+                <p id="currentHumidity">Humidity</p>
+                <p id="currentUV">UV Index</p>
+            </div>
+
+            <!-- Forcast -->
+            <div id="forcast">
+                <h3>5-Day Forcast:</h3>
+                <div class="container">
+                    <div class="card-deck">
+                        <div class="card" style="width: 10rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="titleDay-1">Card title</h5>
+                                <img src="..." class="card-img-top" alt="...">
+                                <p id="tempDay-1">Temp</p>
+                                <p id="windDay-1">Wind</p>
+                                <p id="humidityDay-1">Humidity</p>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 10rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="titleDay-1">Card title</h5>
+                                <img src="..." class="card-img-top" alt="...">
+                                <p id="tempDay-1">Temp</p>
+                                <p id="windDay-1">Wind</p>
+                                <p id="humidityDay-1">Humidity</p>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 10rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="titleDay-1">Card title</h5>
+                                <img src="..." class="card-img-top" alt="...">
+                                <p id="tempDay-1">Temp</p>
+                                <p id="windDay-1">Wind</p>
+                                <p id="humidityDay-1">Humidity</p>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 10rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="titleDay-1">Card title</h5>
+                                <img src="..." class="card-img-top" alt="...">
+                                <p id="tempDay-1">Temp</p>
+                                <p id="windDay-1">Wind</p>
+                                <p id="humidityDay-1">Humidity</p>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 10rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="titleDay-1">Card title</h5>
+                                <img src="..." class="card-img-top" alt="...">
+                                <p id="tempDay-1">Temp</p>
+                                <p id="windDay-1">Wind</p>
+                                <p id="humidityDay-1">Humidity</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        
-                <div id="forcast">
-                    <h3>Forcast</h3>
-                </div>
+
             </div>
         </div>
-        
-    </div>
-    
-    <script src="assets/js/script.js"></script>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
