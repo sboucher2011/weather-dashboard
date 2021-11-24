@@ -20,6 +20,19 @@ body {
     height: 60px;
 }   
 
+#uvFirstPart {
+  margin-right: 15px;
+}
+
+#currentUV {
+  background-color: lightgreen;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: none;
+  color: black;
+}
+
 h1 {
     font-size: 30px;
     color: white;

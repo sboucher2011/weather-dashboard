@@ -74,9 +74,7 @@ function displayCurrentWeather(cityInfo) {
     //current condition
     var currentCondition = cityInfo['weather'][0]['main'];
     var currentConditionIcon = cityInfo['weather'][0]['icon'];
-    //http://openweathermap.org/img/wn/10d@2x.png
-    //10d is the condition
-
+  
     //humidity
     var humidity = cityInfo.main.humidity;
     currentHumidityEl.textContent = "Humidity: " + humidity + " %";
@@ -105,7 +103,16 @@ function displayUVForcast(lat, long) {
         response.json().then(function(uvForcastData) {
             //uv index
             var uvIndex = uvForcastData.current.uvi;
-            currentUVEl.textContent = "UV Index: " + uvIndex;
+
+            if (uvIndex >= 3) {
+                currentUVEl.style.backgroundColor = "#FFFF00";
+            }
+
+            if (uvIndex >= 6) {
+                currentUVEl.style.backgroundColor = "#AA0000";
+            }
+            
+            currentUVEl.textContent =  uvIndex;
 
             displayForcast(uvForcastData);
         });
