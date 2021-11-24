@@ -1,0 +1,32 @@
+#header {
+    background-image: linear-gradient(to right, rgb(12, 158, 216) , darkblue);
+    margin: 25px;
+    text-align: center;
+    height: 60px;
+}
+
+h1 {
+    font-size: 30px;
+    color: white;
+    padding-top: 10px;
+}
+
+#search-col {
+    background-color: rebeccapurple;
+    margin-left: 0;
+}
+
+#right-side {
+    background-color: orange;
+    margin-left: 15px;
+}
+
+
+
+#searchBtn {
+    background-color: rgb(12, 158, 216);
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 12px;
+}
