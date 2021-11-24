@@ -49,17 +49,27 @@ var forcastImage_5 = document.querySelector('#forcast-image-5');
 
 //API 
 var apiKey = "807260d60be85ac5c384c80bba453072";
+var city = "";
 
-var city = "orlando";
+//-------------------------------------------------------
+// Event Listener
+//-------------------------------------------------------
+searchButtonEl.addEventListener("click", function() {
+    event.preventDefault();
 
-var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
-
+    //if (citySearchEl.length > 0) {
+        city = citySearchEl.value;
+        getCurrentWeather();
+   // } 
+    
+});
 
 //-------------------------------------------------------
 // Functions
 //-------------------------------------------------------
 
-function getCurrentWeather() {
+var getCurrentWeather = function() {
+    var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
     fetch(apiURL).then(function(response) {
         response.json().then(function(data) {
             displayCurrentWeather(data);
@@ -184,9 +194,3 @@ function dateConvert(unixDate) {
 
     return(myDate);
 }
-
-//-------------------------------------------------------
-// Function Calls
-//-------------------------------------------------------
-getCurrentWeather();
-
