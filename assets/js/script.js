@@ -2,6 +2,9 @@
 // Variables
 //-------------------------------------------------------
 //search side
+var searchFormEl = document.querySelector('#city-form');
+var citySearchEl = document.querySelector('#cityName');
+var searchButtonEl = document.querySelector('#searchButton');
 
 //current weather box
 var cityNameEl = document.querySelector('#cityNameDateIcon');
@@ -49,12 +52,13 @@ var apiKey = "807260d60be85ac5c384c80bba453072";
 
 var city = "orlando";
 
-var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
+var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
 
 
 //-------------------------------------------------------
 // Functions
 //-------------------------------------------------------
+
 function getCurrentWeather() {
     fetch(apiURL).then(function(response) {
         response.json().then(function(data) {
@@ -185,3 +189,4 @@ function dateConvert(unixDate) {
 // Function Calls
 //-------------------------------------------------------
 getCurrentWeather();
+
