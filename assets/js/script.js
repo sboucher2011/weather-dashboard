@@ -5,6 +5,7 @@
 var searchFormEl = document.querySelector('#city-form');
 var citySearchEl = document.querySelector('#cityName');
 var searchButtonEl = document.querySelector('#searchButton');
+const searchedCities = JSON.parse(localStorage.getItem("searchedCities")) || [];
 
 //current weather box
 var cityNameEl = document.querySelector('#cityNameDateIcon');
@@ -60,6 +61,7 @@ searchButtonEl.addEventListener("click", function() {
     //if (citySearchEl.length > 0) {
         city = citySearchEl.value;
         getCurrentWeather();
+        saveCity(city);
    // } 
     
 });
@@ -193,4 +195,15 @@ function dateConvert(unixDate) {
     myDate = mm + '/' + dd + '/' + yyyy;
 
     return(myDate);
+}
+
+var saveCity = function(cityName) {
+
+    const searchedCity = {
+        city: cityName,
+    }
+
+    searchedCities.push(searchedCity);
+
+    localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
 }
