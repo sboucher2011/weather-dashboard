@@ -136,7 +136,7 @@ function displayCurrentWeather(cityInfo) {
 }
 
 function displayUVForcast(lat, long) {
-     uvForcastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat +  "&lon=" + long+ "&exclude={part}&appid=" + apiKey + "&units=imperial";
+     uvForcastURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat +  "&lon=" + long+ "&exclude={part}&appid=" + apiKey + "&units=imperial";
 
     fetch(uvForcastURL).then(function(response) {
         response.json().then(function(uvForcastData) {
