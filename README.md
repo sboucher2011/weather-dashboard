@@ -5,7 +5,7 @@ Weather dashboard allows you to search for the current weather and five day forc
 
 ## Website Preview
 
-![alt text](https://github.com/sboucher2011/weather-dashboard/blob/main/assests/images/readme.png)
+![alt text](https://github.com/sboucher2011/weather-dashboard/blob/main/assets/images/readme.png)
 
 ## Built With
 * HTML
