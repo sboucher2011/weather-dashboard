@@ -6,6 +6,7 @@ var searchFormEl = document.querySelector('#city-form');
 var citySearchEl = document.querySelector('#cityName');
 var searchButtonEl = document.querySelector('#searchButton');
 const searchedCities = JSON.parse(localStorage.getItem("searchedCities")) || [];
+var savedLocationEl = document.querySelector('#savedLocations');
 
 //current weather box
 var cityNameEl = document.querySelector('#cityNameDateIcon');
@@ -50,7 +51,11 @@ var forcastImage_5 = document.querySelector('#forcast-image-5');
 
 //API 
 var apiKey = "807260d60be85ac5c384c80bba453072";
-var city = "";
+var city = "orlando";
+
+//Trackers for only displaying saved searches at correct times
+var savedRun = "";
+var previousCity = "";
 
 //-------------------------------------------------------
 // Event Listener
@@ -58,12 +63,27 @@ var city = "";
 searchButtonEl.addEventListener("click", function() {
     event.preventDefault();
 
-    //if (citySearchEl.length > 0) {
+    console.log(citySearchEl.value)
+    if (citySearchEl.value === "" || citySearchEl.value === " " || citySearchEl.value === null)  {
+       //do nothing "!=" was not working for some reason
+    } else {
         city = citySearchEl.value;
         getCurrentWeather();
-        saveCity(city);
-   // } 
+        saveCity(city[0].toUpperCase() + city.slice(1));
+        citySearchEl.value = "";
+    }
     
+});
+
+$(document).on("click", ".saved", function() {
+    var text = $(this)
+        .text()
+        .trim();
+    
+   city = text;
+   previousCity = "yes";
+
+   getCurrentWeather();
 });
 
 //-------------------------------------------------------
@@ -77,6 +97,9 @@ var getCurrentWeather = function() {
             displayCurrentWeather(data);
         });
     });
+    
+    populatePastSearches();
+    savedRun = "yes";
 }
 
 function displayCurrentWeather(cityInfo) {
@@ -207,3 +230,38 @@ var saveCity = function(cityName) {
 
     localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
 }
+
+function populatePastSearches() {
+
+    if (previousCity === "yes") {
+        previousCity = "";
+    } else {
+        if (savedRun === "yes") {
+            var previousCityEl = document.createElement("button");
+            previousCityEl.id = "previousCity-"+searchedCities.length ;
+            previousCityEl.className = "saved btn";
+    
+            previousCityEl.textContent = city[0].toUpperCase() + city.slice(1);
+        
+            previousCityEl.style.backgroundColor = '#D3D3D3';
+            savedLocationEl.append(previousCityEl);
+        } else {
+            if (searchedCities.length > 0) {
+                for (var j = 0; j < searchedCities.length; j++) {
+                    
+                   var previousCityEl = document.createElement("button");
+                   previousCityEl.id = "previousCity-"+j;
+                   previousCityEl.className = "saved btn";
+        
+                   previousCityEl.textContent = searchedCities[j].city;
+               
+                   previousCityEl.style.backgroundColor = '#D3D3D3';
+                   savedLocationEl.append(previousCityEl);
+                   
+                }
+            }
+        }
+    }
+}
+
+getCurrentWeather();
