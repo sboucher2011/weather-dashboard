@@ -91,7 +91,7 @@ $(document).on("click", ".saved", function() {
 //-------------------------------------------------------
 
 var getCurrentWeather = function() {
-    var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
+    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
     fetch(apiURL).then(function(response) {
         response.json().then(function(data) {
             displayCurrentWeather(data);
@@ -136,7 +136,7 @@ function displayCurrentWeather(cityInfo) {
 }
 
 function displayUVForcast(lat, long) {
-     uvForcastURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat +  "&lon=" + long+ "&exclude={part}&appid=" + apiKey + "&units=imperial";
+     uvForcastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat +  "&lon=" + long+ "&exclude={part}&appid=" + apiKey + "&units=imperial";
 
     fetch(uvForcastURL).then(function(response) {
         response.json().then(function(uvForcastData) {
